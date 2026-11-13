@@ -206,6 +206,7 @@ async function listenParticipant(){
  ref.child('public').on('value',s=>{const p=s.val();if(!p)return;currentPublic=p;if(p.status==='ended'){$('participantQuestion').innerHTML='<h2>Session ended</h2>';return;}if(p.currentIndex<0)$('participantQuestion').innerHTML='<h2>Waiting for the presenter…</h2><p class="muted">The first question will appear shortly.</p>';else loadParticipantQuestion(p.currentIndex,p);updateParticipantScore();});
  ref.child('responses').on('value',s=>{liveResponses=s.val()||{};updateParticipantScore();});
  ref.child('questions').on('value',s=>{currentQuestions=s.val()||[];updateParticipantScore();});
+ ref.child('participants').on('value',s=>{liveParticipants=s.val()||{};updateParticipantScore();});
 }
 async function loadParticipantQuestion(idx,p){
  const snap=await db.ref(`sessions/${currentCode}/questions/${idx}`).once('value'),q=snap.val();if(!q)return;currentQuestion=q;
@@ -233,11 +234,11 @@ async function loadParticipantQuestion(idx,p){
 async function submitChoice(i){const q=currentQuestion;if(!q)return;await db.ref(`sessions/${currentCode}/responses/${q.id}/${auth.currentUser.uid}`).set({answer:i,submittedAt:firebase.database.ServerValue.TIMESTAMP});loadParticipantQuestion((await db.ref(`sessions/${currentCode}/public/currentIndex`).once('value')).val(),(await db.ref(`sessions/${currentCode}/public`).once('value')).val());}
 async function submitWord(){const word=$('wordInput')?.value.trim();if(!word)return;await db.ref(`sessions/${currentCode}/responses/${currentQuestion.id}/${auth.currentUser.uid}`).set({word,submittedAt:firebase.database.ServerValue.TIMESTAMP});loadParticipantQuestion((await db.ref(`sessions/${currentCode}/public/currentIndex`).once('value')).val(),(await db.ref(`sessions/${currentCode}/public`).once('value')).val());}
 function calculateScores(){
- const scores={};Object.entries(liveParticipants||{}).forEach(([uid,p])=>scores[uid]={uid,name:p.name||'Participant',score:0,answered:0});
- const revealed=currentPublic?.revealedAnswers||{};
- Object.entries(revealed).forEach(([qid,correct])=>{
-  const q=(currentQuestions||[]).find(item=>item&&item.id===qid);if(!q||!['quiz','truefalse'].includes(q.type))return;
-  Object.entries(liveResponses[qid]||{}).forEach(([uid,r])=>{if(scores[uid]){scores[uid].answered++;if(Number(r.answer)===Number(correct))scores[uid].score+=Number(q.points)||10;}});
+ const scores={};
+ Object.entries(liveParticipants||{}).forEach(([uid,p])=>{
+  const questionScores=p.questionScores||{};
+  const savedTotal=Object.values(questionScores).reduce((sum,n)=>sum+(Number(n)||0),0);
+  scores[uid]={uid,name:p.name||'Participant',score:Number(p.score??savedTotal)||0,answered:Number(p.answered)||Object.keys(questionScores).length};
  });
  return Object.values(scores).sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
 }
@@ -267,7 +268,40 @@ function renderLeaderboard(){
  $('leaderboard').innerHTML=rows.length?rows.map((p,i)=>`<div class="leader"><b>#${i+1}</b><span>${esc(p.name)}<div class="tiny muted">${p.answered} correct-answer rounds scored</div></span><b class="score-total">${p.score} pts</b></div>`).join(''):'Participants will appear here after joining.';
 }
 async function nextQuestion(){const ref=db.ref('sessions/'+currentCode),p=(await ref.child('public').once('value')).val(),qs=(await ref.child('questions').once('value')).val()||[];const idx=p.currentIndex+1;if(idx>=qs.length)return alert('All questions are complete. End the session when ready.');await ref.child('public').update({currentIndex:idx,revealed:false});}
-async function revealCurrent(){const ref=db.ref('sessions/'+currentCode),p=(await ref.child('public').once('value')).val(),q=(await ref.child('questions/'+p.currentIndex).once('value')).val();if(!q)return;let update={revealed:true};if(q.type==='quiz'||q.type==='truefalse'){const key=(await ref.child('answerKeys/'+q.id).once('value')).val();update['revealedAnswers/'+q.id]=key;}await ref.child('public').update(update);}
+async function revealCurrent(){
+ const ref=db.ref('sessions/'+currentCode);
+ const p=(await ref.child('public').once('value')).val();
+ if(!p||p.currentIndex<0)return;
+ const q=(await ref.child('questions/'+p.currentIndex).once('value')).val();
+ if(!q)return;
+ const update={'public/revealed':true};
+ if(q.type==='quiz'||q.type==='truefalse'){
+  const key=(await ref.child('answerKeys/'+q.id).once('value')).val();
+  if(key===null||key===undefined){alert('The correct answer key was not found for this question.');return;}
+  update['public/revealedAnswers/'+q.id]=Number(key);
+  const [responsesSnap,participantsSnap]=await Promise.all([
+   ref.child('responses/'+q.id).once('value'),
+   ref.child('participants').once('value')
+  ]);
+  const responses=responsesSnap.val()||{};
+  const participants=participantsSnap.val()||{};
+  const points=Number(q.points)>0?Number(q.points):10;
+  Object.entries(responses).forEach(([uid,response])=>{
+   const participant=participants[uid];
+   if(!participant||response.answer===undefined)return;
+   const previous=participant.questionScores||{};
+   // Prevent duplicate awards if Reveal is clicked more than once.
+   if(Object.prototype.hasOwnProperty.call(previous,q.id))return;
+   const earned=Number(response.answer)===Number(key)?points:0;
+   const questionScores={...previous,[q.id]:earned};
+   const total=Object.values(questionScores).reduce((sum,value)=>sum+(Number(value)||0),0);
+   update['participants/'+uid+'/questionScores']=questionScores;
+   update['participants/'+uid+'/score']=total;
+   update['participants/'+uid+'/answered']=Object.keys(questionScores).length;
+  });
+ }
+ await ref.update(update);
+}
 async function endCurrent(){if(confirm('End this session?'))await db.ref('sessions/'+currentCode+'/public/status').set('ended');}
 const params=new URLSearchParams(location.search);
 if(params.has('join')){view('joinView');const code=params.get('join');db.ref('sessions/'+code+'/public').once('value').then(s=>{$('joinSessionTitle').textContent=s.val()?.title||'Session';watchJoinStatus(code);}).catch(e=>say('joinMsg',e.message,true));}

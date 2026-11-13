@@ -11,7 +11,8 @@
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 <style>
 :root{--bg:#0b1220;--panel:#142137;--panel2:#1a2b44;--line:#30425d;--txt:#f2f6ff;--muted:#a6b5ca;--mint:#75e6c3;--blue:#83b2ff;--red:#ff8e9a}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0,#1c3450 0,transparent 42%),var(--bg);color:var(--txt);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,input,textarea,select{font:inherit}button{border:0;border-radius:12px;background:var(--mint);color:#092018;font-weight:800;padding:11px 16px;cursor:pointer}button.alt{background:#263a57;color:var(--txt);border:1px solid var(--line)}button.danger{background:#552d3a;color:#ffe4e8}button:disabled{opacity:.45;cursor:not-allowed}input,textarea,select{width:100%;background:#0c1728;color:var(--txt);border:1px solid var(--line);border-radius:11px;padding:12px;outline:none}textarea{min-height:85px;resize:vertical}label{display:block;color:var(--muted);font-size:13px;margin:12px 0 6px}.wrap{max-width:1050px;margin:auto;padding:22px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:20px;margin:8px 0 26px}.logo{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,var(--mint),var(--blue));color:#081725}.muted{color:var(--muted)}.tiny{font-size:12px}.card{background:linear-gradient(145deg,#182940,#111d30);border:1px solid var(--line);border-radius:19px;padding:21px;margin:14px 0}.login{max-width:440px;margin:12vh auto 0}.login h1{font-size:32px;margin:8px 0}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.row .fit{flex:0 0 auto}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.hidden{display:none!important}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--muted);font-size:12px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:clamp(25px,4vw,36px);margin:5px 0 15px}.session-card{display:flex;align-items:center;justify-content:space-between;gap:15px}.session-card h3{margin:0}.question-box{padding:17px;border:1px solid var(--line);border-radius:15px;background:#101c2e;margin:13px 0}.option-row{display:grid;grid-template-columns:26px minmax(100px,1fr) minmax(110px,180px);gap:9px;align-items:center;margin:8px 0}.option-row input[type=radio]{width:18px;height:18px;accent-color:var(--mint)}.option-row input[type=file]{font-size:11px;padding:7px}.image-preview{max-width:180px;max-height:120px;object-fit:contain;border-radius:9px;margin-top:7px}.qimage{max-width:min(100%,520px);max-height:330px;object-fit:contain;border-radius:14px;display:block;margin:14px 0}.optimage{max-width:100%;max-height:150px;object-fit:contain;display:block;margin:8px auto 0;border-radius:9px}.option-tile{border:1px solid var(--line);background:#1a2b43;border-radius:14px;padding:15px;text-align:left;color:var(--txt);font-weight:650;width:100%;min-height:65px}.option-tile.selected{border-color:var(--mint);background:#173b37}.option-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.bigq{font-size:clamp(25px,4vw,48px);font-weight:850;line-height:1.12}.qrbox{display:inline-block;background:white;padding:12px;border-radius:12px;min-width:170px;min-height:170px}.bar{height:13px;background:#293b54;border-radius:99px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--mint),var(--blue))}.resultrow{display:grid;grid-template-columns:minmax(100px,1fr) 2fr 48px;gap:10px;align-items:center;margin:12px 0}.wordcloud{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;min-height:220px;padding:15px}.word{font-weight:900;color:var(--mint)}.leader{display:grid;grid-template-columns:45px 1fr 75px;gap:10px;padding:10px;border-bottom:1px solid var(--line)}.foot{text-align:center;color:var(--muted);font-size:12px;padding:28px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0,#1c3450 0,transparent 42%),var(--bg);color:var(--txt);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,input,textarea,select{font:inherit}button{border:0;border-radius:12px;background:var(--mint);color:#092018;font-weight:800;padding:11px 16px;cursor:pointer}button.alt{background:#263a57;color:var(--txt);border:1px solid var(--line)}button.danger{background:#552d3a;color:#ffe4e8}button:disabled{opacity:.45;cursor:not-allowed}input,textarea,select{width:100%;background:#0c1728;color:var(--txt);border:1px solid var(--line);border-radius:11px;padding:12px;outline:none}textarea{min-height:85px;resize:vertical}label{display:block;color:var(--muted);font-size:13px;margin:12px 0 6px}.wrap{max-width:1050px;margin:auto;padding:22px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:20px;margin:8px 0 26px}.logo{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,var(--mint),var(--blue));color:#081725}.muted{color:var(--muted)}.tiny{font-size:12px}.card{background:linear-gradient(145deg,#182940,#111d30);border:1px solid var(--line);border-radius:19px;padding:21px;margin:14px 0}.login{max-width:440px;margin:12vh auto 0}.login h1{font-size:32px;margin:8px 0}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.row .fit{flex:0 0 auto}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.hidden{display:none!important}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--muted);font-size:12px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:clamp(25px,4vw,36px);margin:5px 0 15px}.session-card{display:flex;align-items:center;justify-content:space-between;gap:15px}.session-card h3{margin:0}.question-box{padding:17px;border:1px solid var(--line);border-radius:15px;background:#101c2e;margin:13px 0}.option-row{display:grid;grid-template-columns:26px minmax(100px,1fr) minmax(110px,180px);gap:9px;align-items:center;margin:8px 0}.option-row input[type=radio]{width:18px;height:18px;accent-color:var(--mint)}.option-row input[type=file]{font-size:11px;padding:7px}.image-preview{max-width:180px;max-height:120px;object-fit:contain;border-radius:9px;margin-top:7px}.qimage{max-width:min(100%,520px);max-height:330px;object-fit:contain;border-radius:14px;display:block;margin:14px 0}.optimage{max-width:100%;max-height:150px;object-fit:contain;display:block;margin:8px auto 0;border-radius:9px}.option-tile{border:1px solid var(--line);background:#1a2b43;border-radius:14px;padding:15px;text-align:left;color:var(--txt);font-weight:650;width:100%;min-height:65px}.option-tile.selected{border-color:var(--mint);background:#173b37}.option-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.bigq{font-size:clamp(25px,4vw,48px);font-weight:850;line-height:1.12}.qrbox{display:inline-block;background:white;padding:12px;border-radius:12px;min-width:170px;min-height:170px}.bar{height:13px;background:#293b54;border-radius:99px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--mint),var(--blue))}.resultrow{display:grid;grid-template-columns:minmax(100px,1fr) 2fr 48px;gap:10px;align-items:center;margin:12px 0}.wordcloud{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;min-height:220px;padding:15px}.word{font-weight:900;color:var(--mint)}.leader{display:grid;grid-template-columns:38px minmax(0,1fr) 82px;gap:10px;padding:10px;border-bottom:1px solid var(--line);align-items:center}.presenter-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,1fr);gap:16px;align-items:start}.presenter-panel{min-width:0}.presenter-panel .card{margin:0}.presenter-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.option-tile.correct-answer{border:2px solid #43d69a!important;background:#124b3b!important;color:#eafff5!important;box-shadow:0 0 0 2px #43d69a33}.option-tile.wrong-answer{opacity:.62}.score-total{color:var(--mint);font-weight:900}.join-state{padding:10px 12px;border-radius:10px;background:#1a2b44;margin-top:12px}.personal-score{font-size:18px;font-weight:850;color:var(--mint);margin-bottom:12px}.foot{text-align:center;color:var(--muted);font-size:12px;padding:28px}
+@media(max-width:760px){.presenter-layout{grid-template-columns:1fr}.presenter-options{grid-template-columns:1fr}}
 @media(max-width:650px){.wrap{padding:14px}.session-card{align-items:flex-start;flex-direction:column}.option-grid{grid-template-columns:1fr}.option-row{grid-template-columns:24px 1fr}.option-row input[type=file]{grid-column:2}.resultrow{grid-template-columns:85px 1fr 38px}.login{margin:9vh auto 0}}
 </style>
 </head>
@@ -64,19 +65,21 @@
 <section id="joinView" class="card login hidden">
  <div class="muted tiny">PARTICIPANT ENTRY</div><h1>Join the class</h1><p id="joinSessionTitle" class="muted"></p>
  <label>Your name</label><input id="participantName" maxlength="40" placeholder="Enter your name">
- <div class="actions"><button style="width:100%" onclick="joinClass()">Join session</button></div><p id="joinMsg" class="muted tiny"></p>
+ <div class="join-state" id="joinState">Waiting for the presenter to start the session…</div><div class="actions"><button id="joinButton" style="width:100%" onclick="joinClass()" disabled>Join session</button></div><p id="joinMsg" class="muted tiny"></p>
 </section>
 
 <section id="participantView" class="hidden">
  <div class="top"><div><div class="muted tiny">PARTICIPANT</div><h1 class="title" id="participantWelcome"></h1></div><span class="pill" id="participantStatus">Waiting</span></div>
- <div class="card" id="participantQuestion"><h2>Waiting for the presenter…</h2><p class="muted">Your question will appear here.</p></div>
+ <div class="card"><div class="personal-score" id="participantScore">Your marks: 0</div><div id="participantQuestion"><h2>Waiting for the presenter…</h2><p class="muted">Your question will appear here.</p></div></div>
 </section>
 
 <section id="projectorView" class="hidden">
  <div class="top"><div><div class="muted tiny">LIVE CLASSROOM</div><h1 class="title" id="projectorTitle"></h1></div><span class="pill" id="projectorCount">0 participants</span></div>
- <div class="card"><div class="muted tiny" id="projectorType"></div><div class="bigq" id="projectorQuestion">Waiting for presenter…</div><img id="projectorImage" class="qimage hidden"><div id="projectorOptions" class="option-grid"></div><div id="projectorResults"></div><div id="projectorReveal"></div></div>
- <div class="card"><h2>Leaderboard</h2><div id="leaderboard" class="muted">Scores appear after answers are revealed.</div></div>
- <div id="projectorControls" class="card hidden"><h2>Presenter controls</h2><div class="actions"><button onclick="nextQuestion()">Start / Next question</button><button class="alt" onclick="revealCurrent()">Reveal answer</button><button class="danger" onclick="endCurrent()">End session</button></div></div>
+ <div class="presenter-layout">
+  <div class="presenter-panel"><div class="card"><div class="muted tiny" id="projectorType"></div><div class="bigq" id="projectorQuestion">Waiting for presenter…</div><img id="projectorImage" class="qimage hidden"><div id="projectorOptions" class="presenter-options"></div><div id="projectorResults"></div><div id="projectorReveal"></div></div></div>
+  <div class="presenter-panel"><div class="card"><div class="top"><h2 style="margin:0">Participants & marks</h2><span class="pill" id="scoreCount">0</span></div><div id="leaderboard" class="muted">Participants will appear here after joining.</div></div></div>
+ </div>
+ <div id="projectorControls" class="card hidden"><h2>Presenter controls</h2><div class="actions"><button onclick="nextQuestion()">Start / Next question</button><button class="alt" onclick="revealCurrent()">Reveal answer & marks</button><button class="danger" onclick="endCurrent()">End session</button></div></div>
 </section>
 </main><div class="foot">ClassPulse · Interactive classroom</div></div>
 
@@ -172,21 +175,102 @@ function copyLink(){navigator.clipboard.writeText(joinUrl(currentCode));}
 async function activateSession(code){await db.ref('sessions/'+code+'/public').update({status:'active',currentIndex:-1,revealed:false});currentCode=code;openProjectorFor(code);}
 function openProjector(){if(currentCode)openProjectorFor(currentCode);}
 function openProjectorFor(code){window.open(location.origin+location.pathname+'?screen='+code,'_blank');}
-async function joinClass(){const name=$('participantName').value.trim();if(!name)return say('joinMsg','Please enter your name.',true);try{await requireAnon();const code=params.get('join');const p=(await db.ref('sessions/'+code+'/public').once('value')).val();if(!p||p.status!=='active')return say('joinMsg','This session has not started yet or has ended.',true);currentCode=code;participantName=name;await db.ref(`sessions/${code}/participants/${auth.currentUser.uid}`).set({name,joinedAt:firebase.database.ServerValue.TIMESTAMP});$('participantWelcome').textContent='Welcome, '+name;$('participantStatus').textContent='Connected';view('participantView');listenParticipant();}catch(e){say('joinMsg',e.message,true);}}
 let participantName='';
-async function listenParticipant(){const ref=db.ref('sessions/'+currentCode);ref.child('public').on('value',s=>{const p=s.val();if(!p)return;if(p.status==='ended'){$('participantQuestion').innerHTML='<h2>Session ended</h2>';return;}if(p.currentIndex<0)$('participantQuestion').innerHTML='<h2>Waiting for the presenter…</h2><p class="muted">The first question will appear shortly.</p>';else loadParticipantQuestion(p.currentIndex,p);});}
-async function loadParticipantQuestion(idx,p){const snap=await db.ref(`sessions/${currentCode}/questions/${idx}`).once('value'),q=snap.val();if(!q)return;currentQuestion=q;$('participantStatus').textContent=p.revealed?'Answer revealed':'Question '+(idx+1);const existing=await db.ref(`sessions/${currentCode}/responses/${q.id}/${auth.currentUser.uid}`).once('value');let html=`<div class="muted tiny">QUESTION ${idx+1}</div><h2>${esc(q.text)}</h2>${imgHtml(q.image,'qimage')}`;if(existing.exists()){html+='<div class="pill">Response submitted</div>';}else if(q.type==='wordcloud'){html+='<label>Your word or phrase</label><input id="wordInput" maxlength="50" placeholder="Type one word or short phrase"><div class="actions"><button onclick="submitWord()">Submit</button></div>';}else{html+='<div class="option-grid">'+q.options.map((o,i)=>`<button class="option-tile" onclick="submitChoice(${i})">${esc(o.text||'')} ${imgHtml(o.image,'optimage')}</button>`).join('')+'</div>';}if(p.revealed&&p.revealedAnswers&&p.revealedAnswers[q.id]!==undefined)html+=`<div class="question-box">Correct answer: ${esc(q.options?.[p.revealedAnswers[q.id]]?.text||'')}</div>`;$('participantQuestion').innerHTML=html;}
-async function submitChoice(i){const q=currentQuestion;await db.ref(`sessions/${currentCode}/responses/${q.id}/${auth.currentUser.uid}`).set({answer:i,submittedAt:firebase.database.ServerValue.TIMESTAMP});loadParticipantQuestion((await db.ref(`sessions/${currentCode}/public/currentIndex`).once('value')).val(),(await db.ref(`sessions/${currentCode}/public`).once('value')).val());}
-async function submitWord(){const word=$('wordInput').value.trim();if(!word)return;await db.ref(`sessions/${currentCode}/responses/${currentQuestion.id}/${auth.currentUser.uid}`).set({word,submittedAt:firebase.database.ServerValue.TIMESTAMP});loadParticipantQuestion((await db.ref(`sessions/${currentCode}/public/currentIndex`).once('value')).val(),(await db.ref(`sessions/${currentCode}/public`).once('value')).val());}
+let joinStatusListener=null;
+function watchJoinStatus(code){
+ if(joinStatusListener)db.ref('sessions/'+code+'/public/status').off('value',joinStatusListener);
+ joinStatusListener=s=>{
+  const status=s.val();
+  const active=status==='active';
+  $('joinButton').disabled=!active;
+  $('joinState').textContent=active?'The presenter has started the session. You can join now.':status==='ended'?'This session has ended.':'Waiting for the presenter to start the session…';
+  $('joinState').style.color=active?'#75e6c3':status==='ended'?'#ff9aa5':'';
+ };
+ db.ref('sessions/'+code+'/public/status').on('value',joinStatusListener);
+}
+async function joinClass(){
+ const name=$('participantName').value.trim();
+ if(!name)return say('joinMsg','Please enter your name.',true);
+ try{
+  await requireAnon();const code=params.get('join');
+  const p=(await db.ref('sessions/'+code+'/public').once('value')).val();
+  if(!p||p.status!=='active'){say('joinMsg',p?.status==='ended'?'This session has ended.':'Please wait until the presenter starts the session.',true);return;}
+  currentCode=code;participantName=name;
+  await db.ref(`sessions/${code}/participants/${auth.currentUser.uid}`).set({name,joinedAt:firebase.database.ServerValue.TIMESTAMP});
+  if(joinStatusListener)db.ref('sessions/'+code+'/public/status').off('value',joinStatusListener);
+  $('participantWelcome').textContent='Welcome, '+name;$('participantStatus').textContent='Connected';view('participantView');listenParticipant();
+ }catch(e){say('joinMsg',e.message,true);}
+}
+async function listenParticipant(){
+ const ref=db.ref('sessions/'+currentCode);
+ ref.child('public').on('value',s=>{const p=s.val();if(!p)return;currentPublic=p;if(p.status==='ended'){$('participantQuestion').innerHTML='<h2>Session ended</h2>';return;}if(p.currentIndex<0)$('participantQuestion').innerHTML='<h2>Waiting for the presenter…</h2><p class="muted">The first question will appear shortly.</p>';else loadParticipantQuestion(p.currentIndex,p);updateParticipantScore();});
+ ref.child('responses').on('value',s=>{liveResponses=s.val()||{};updateParticipantScore();});
+ ref.child('questions').on('value',s=>{currentQuestions=s.val()||[];updateParticipantScore();});
+}
+async function loadParticipantQuestion(idx,p){
+ const snap=await db.ref(`sessions/${currentCode}/questions/${idx}`).once('value'),q=snap.val();if(!q)return;currentQuestion=q;
+ $('participantStatus').textContent=p.revealed?'Answer revealed':'Question '+(idx+1);
+ const existing=await db.ref(`sessions/${currentCode}/responses/${q.id}/${auth.currentUser.uid}`).once('value');
+ const revealed=p.revealed&&p.revealedAnswers&&p.revealedAnswers[q.id]!==undefined?Number(p.revealedAnswers[q.id]):null;
+ let html=`<div class="muted tiny">QUESTION ${idx+1}</div><h2>${esc(q.text)}</h2>${imgHtml(q.image,'qimage')}`;
+ if(q.type==='wordcloud'){
+  if(existing.exists())html+='<div class="pill">Response submitted</div>';
+  else html+='<label>Your word or phrase</label><input id="wordInput" maxlength="50" placeholder="Type one word or short phrase"><div class="actions"><button onclick="submitWord()">Submit</button></div>';
+ }else{
+  html+='<div class="option-grid">'+q.options.map((o,i)=>{
+   const cls=revealed!==null?(i===revealed?' correct-answer':' wrong-answer'):'';
+   const mark=revealed!==null&&i===revealed?' ✓ CORRECT':'';
+   const content=`${String.fromCharCode(65+i)} · ${esc(o.text||'')}${mark} ${imgHtml(o.image,'optimage')}`;
+   if(!existing.exists()&&revealed===null)return `<button class="option-tile" onclick="submitChoice(${i})">${content}</button>`;
+   return `<div class="option-tile${cls}">${content}</div>`;
+  }).join('')+'</div>';
+  if(existing.exists())html+='<div class="pill">Your response has been submitted</div>';
+  else if(revealed===null)html+='<p class="muted tiny">Select an answer on your device.</p>';
+ }
+ if(revealed!==null)html+=`<div class="question-box">Correct answer: <b>${esc(q.options?.[revealed]?.text||'')}</b></div>`;
+ $('participantQuestion').innerHTML=html;updateParticipantScore();
+}
+async function submitChoice(i){const q=currentQuestion;if(!q)return;await db.ref(`sessions/${currentCode}/responses/${q.id}/${auth.currentUser.uid}`).set({answer:i,submittedAt:firebase.database.ServerValue.TIMESTAMP});loadParticipantQuestion((await db.ref(`sessions/${currentCode}/public/currentIndex`).once('value')).val(),(await db.ref(`sessions/${currentCode}/public`).once('value')).val());}
+async function submitWord(){const word=$('wordInput')?.value.trim();if(!word)return;await db.ref(`sessions/${currentCode}/responses/${currentQuestion.id}/${auth.currentUser.uid}`).set({word,submittedAt:firebase.database.ServerValue.TIMESTAMP});loadParticipantQuestion((await db.ref(`sessions/${currentCode}/public/currentIndex`).once('value')).val(),(await db.ref(`sessions/${currentCode}/public`).once('value')).val());}
+function calculateScores(){
+ const scores={};Object.entries(liveParticipants||{}).forEach(([uid,p])=>scores[uid]={uid,name:p.name||'Participant',score:0,answered:0});
+ const revealed=currentPublic?.revealedAnswers||{};
+ Object.entries(revealed).forEach(([qid,correct])=>{
+  const q=(currentQuestions||[]).find(item=>item&&item.id===qid);if(!q||!['quiz','truefalse'].includes(q.type))return;
+  Object.entries(liveResponses[qid]||{}).forEach(([uid,r])=>{if(scores[uid]){scores[uid].answered++;if(Number(r.answer)===Number(correct))scores[uid].score+=Number(q.points)||10;}});
+ });
+ return Object.values(scores).sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
+}
+function updateParticipantScore(){
+ if(!auth.currentUser||!currentCode)return;
+ const own=calculateScores().find(p=>p.uid===auth.currentUser.uid);
+ $('participantScore').textContent='Your marks: '+(own?.score||0)+' points';
+}
 async function initProjector(code){await authReady;if(!auth.currentUser)await requireAnon();currentCode=code;$('projectorControls').classList.toggle('hidden',!(auth.currentUser&&!auth.currentUser.isAnonymous));const ref=db.ref('sessions/'+code);const pub=(await ref.child('public').once('value')).val();if(!pub){$('projectorQuestion').textContent='Session not found.';return;}ref.child('public').on('value',s=>{currentPublic=s.val();renderProjector();});ref.child('questions').on('value',s=>{currentQuestions=s.val()||[];renderProjector();});ref.child('participants').on('value',s=>{liveParticipants=s.val()||{};$('projectorCount').textContent=Object.keys(liveParticipants).length+' participants';renderLeaderboard();});ref.child('responses').on('value',s=>{liveResponses=s.val()||{};renderProjector();renderLeaderboard();});}
-function renderProjector(){if(!currentPublic)return;$('projectorTitle').textContent=currentPublic.title;const idx=currentPublic.currentIndex;if(idx<0){$('projectorQuestion').textContent='Ready to begin';$('projectorType').textContent='Waiting for presenter';$('projectorOptions').innerHTML='';$('projectorImage').classList.add('hidden');return;}const q=currentQuestions[idx];if(!q)return;currentQuestion=q;$('projectorType').textContent=q.type==='poll'?'LIVE POLL':q.type==='wordcloud'?'WORD CLOUD':'QUESTION '+(idx+1);$('projectorQuestion').textContent=q.text;if(q.image){$('projectorImage').src=q.image;$('projectorImage').classList.remove('hidden');}else $('projectorImage').classList.add('hidden');$('projectorOptions').innerHTML=(q.options||[]).map((o,i)=>`<div class="option-tile">${String.fromCharCode(65+i)} · ${esc(o.text||'')}${imgHtml(o.image,'optimage')}</div>`).join('');renderResults(q);$('projectorReveal').innerHTML=currentPublic.revealed&&currentPublic.revealedAnswers?.[q.id]!==undefined?`<div class="question-box">Correct answer: <b>${esc(q.options[currentPublic.revealedAnswers[q.id]]?.text||'')}</b></div>`:'';}
-function renderResults(q){const rs=Object.values(liveResponses[q.id]||{});if(q.type==='wordcloud'){const counts={};rs.forEach(r=>{const w=(r.word||'').trim();if(w)counts[w]=(counts[w]||0)+1;});$('projectorResults').innerHTML='<h3>'+rs.length+' responses</h3><div class="wordcloud">'+Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([w,n])=>`<span class="word" style="font-size:${Math.min(52,18+n*4)}px">${esc(w)}</span>`).join('')+'</div>';return;}const counts=(q.options||[]).map((_,i)=>rs.filter(r=>r.answer===i).length);const total=rs.length;$('projectorResults').innerHTML='<h3>'+total+' responses</h3>'+counts.map((n,i)=>`<div class="resultrow"><b>${String.fromCharCode(65+i)}</b><div class="bar"><div class="fill" style="width:${total?n/total*100:0}%"></div></div><span>${total?Math.round(n/total*100):0}%</span></div>`).join('');}
-function renderLeaderboard(){if(!currentPublic)return;const revealed=currentPublic.revealedAnswers||{},scores={};Object.entries(liveParticipants).forEach(([uid,p])=>scores[uid]={name:p.name||'Participant',score:0});Object.entries(revealed).forEach(([qid,correct])=>{Object.entries(liveResponses[qid]||{}).forEach(([uid,r])=>{if(scores[uid]&&r.answer===correct){const q=currentQuestions.find(item=>item.id===qid);scores[uid].score+=Number(q?.points)||10;}});});const rows=Object.values(scores).sort((a,b)=>b.score-a.score).slice(0,10);$('leaderboard').innerHTML=rows.length?rows.map((p,i)=>`<div class="leader"><b>#${i+1}</b><span>${esc(p.name)}</span><b>${p.score} pts</b></div>`).join(''):'No participants yet.';}
+function renderProjector(){
+ if(!currentPublic)return;$('projectorTitle').textContent=currentPublic.title;
+ const idx=currentPublic.currentIndex;
+ if(idx<0){$('projectorQuestion').textContent='Ready to begin';$('projectorType').textContent='Waiting for presenter';$('projectorOptions').innerHTML='';$('projectorImage').classList.add('hidden');$('projectorResults').innerHTML='';$('projectorReveal').innerHTML='';renderLeaderboard();return;}
+ const q=currentQuestions[idx];if(!q)return;currentQuestion=q;
+ $('projectorType').textContent=q.type==='poll'?'LIVE POLL':q.type==='wordcloud'?'WORD CLOUD':'QUESTION '+(idx+1)+' · '+(Number(q.points)||10)+' points';
+ $('projectorQuestion').textContent=q.text;
+ if(q.image){$('projectorImage').src=q.image;$('projectorImage').classList.remove('hidden');}else $('projectorImage').classList.add('hidden');
+ const correct=currentPublic.revealed&&currentPublic.revealedAnswers?.[q.id]!==undefined?Number(currentPublic.revealedAnswers[q.id]):null;
+ $('projectorOptions').innerHTML=(q.options||[]).map((o,i)=>{const cls=correct!==null?(i===correct?' correct-answer':' wrong-answer'):'';const mark=correct!==null&&i===correct?' ✓ CORRECT':'';return `<div class="option-tile${cls}">${String.fromCharCode(65+i)} · ${esc(o.text||'')}${mark}${imgHtml(o.image,'optimage')}</div>`;}).join('');
+ renderResults(q);
+ $('projectorReveal').innerHTML=correct!==null?`<div class="question-box"><b style="color:#75e6c3">Correct answer:</b> ${esc(q.options[correct]?.text||'')} · Marks awarded</div>`:'';
+ renderLeaderboard();
+}
+function renderResults(q){const rs=Object.values(liveResponses[q.id]||{});if(q.type==='wordcloud'){const counts={};rs.forEach(r=>{const w=(r.word||'').trim();if(w)counts[w]=(counts[w]||0)+1;});$('projectorResults').innerHTML='<h3>'+rs.length+' responses</h3><div class="wordcloud">'+Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([w,n])=>`<span class="word" style="font-size:${Math.min(52,18+n*4)}px">${esc(w)}</span>`).join('')+'</div>';return;}const counts=(q.options||[]).map((_,i)=>rs.filter(r=>Number(r.answer)===i).length);const total=rs.length;$('projectorResults').innerHTML='<h3>'+total+' responses</h3>'+counts.map((n,i)=>`<div class="resultrow"><b>${String.fromCharCode(65+i)}</b><div class="bar"><div class="fill" style="width:${total?n/total*100:0}%"></div></div><span>${total?Math.round(n/total*100):0}%</span></div>`).join('');}
+function renderLeaderboard(){
+ const rows=calculateScores();$('scoreCount').textContent=rows.length+' joined';
+ $('leaderboard').innerHTML=rows.length?rows.map((p,i)=>`<div class="leader"><b>#${i+1}</b><span>${esc(p.name)}<div class="tiny muted">${p.answered} correct-answer rounds scored</div></span><b class="score-total">${p.score} pts</b></div>`).join(''):'Participants will appear here after joining.';
+}
 async function nextQuestion(){const ref=db.ref('sessions/'+currentCode),p=(await ref.child('public').once('value')).val(),qs=(await ref.child('questions').once('value')).val()||[];const idx=p.currentIndex+1;if(idx>=qs.length)return alert('All questions are complete. End the session when ready.');await ref.child('public').update({currentIndex:idx,revealed:false});}
 async function revealCurrent(){const ref=db.ref('sessions/'+currentCode),p=(await ref.child('public').once('value')).val(),q=(await ref.child('questions/'+p.currentIndex).once('value')).val();if(!q)return;let update={revealed:true};if(q.type==='quiz'||q.type==='truefalse'){const key=(await ref.child('answerKeys/'+q.id).once('value')).val();update['revealedAnswers/'+q.id]=key;}await ref.child('public').update(update);}
 async function endCurrent(){if(confirm('End this session?'))await db.ref('sessions/'+currentCode+'/public/status').set('ended');}
 const params=new URLSearchParams(location.search);
-if(params.has('join')){view('joinView');requireAnon().then(async()=>{const p=(await db.ref('sessions/'+params.get('join')+'/public').once('value')).val();$('joinSessionTitle').textContent=p?.title||'Session';}).catch(e=>say('joinMsg',e.message,true));}
+if(params.has('join')){view('joinView');const code=params.get('join');db.ref('sessions/'+code+'/public').once('value').then(s=>{$('joinSessionTitle').textContent=s.val()?.title||'Session';watchJoinStatus(code);}).catch(e=>say('joinMsg',e.message,true));}
 else if(params.has('screen')){view('projectorView');initProjector(params.get('screen'));}
 </script>
 </body></html>

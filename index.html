@@ -14,6 +14,51 @@
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0,#1c3450 0,transparent 42%),var(--bg);color:var(--txt);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,input,textarea,select{font:inherit}button{border:0;border-radius:12px;background:var(--mint);color:#092018;font-weight:800;padding:11px 16px;cursor:pointer}button.alt{background:#263a57;color:var(--txt);border:1px solid var(--line)}button.danger{background:#552d3a;color:#ffe4e8}button:disabled{opacity:.45;cursor:not-allowed}input,textarea,select{width:100%;background:#0c1728;color:var(--txt);border:1px solid var(--line);border-radius:11px;padding:12px;outline:none}textarea{min-height:85px;resize:vertical}label{display:block;color:var(--muted);font-size:13px;margin:12px 0 6px}.wrap{max-width:1050px;margin:auto;padding:22px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:20px;margin:8px 0 26px}.logo{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,var(--mint),var(--blue));color:#081725}.muted{color:var(--muted)}.tiny{font-size:12px}.card{background:linear-gradient(145deg,#182940,#111d30);border:1px solid var(--line);border-radius:19px;padding:21px;margin:14px 0}.login{max-width:440px;margin:12vh auto 0}.login h1{font-size:32px;margin:8px 0}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.row .fit{flex:0 0 auto}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.hidden{display:none!important}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--muted);font-size:12px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:clamp(25px,4vw,36px);margin:5px 0 15px}.session-card{display:flex;align-items:center;justify-content:space-between;gap:15px}.session-card h3{margin:0}.question-box{padding:17px;border:1px solid var(--line);border-radius:15px;background:#101c2e;margin:13px 0}.option-row{display:grid;grid-template-columns:26px minmax(100px,1fr) minmax(110px,180px);gap:9px;align-items:center;margin:8px 0}.option-row input[type=radio]{width:18px;height:18px;accent-color:var(--mint)}.option-row input[type=file]{font-size:11px;padding:7px}.image-preview{max-width:180px;max-height:120px;object-fit:contain;border-radius:9px;margin-top:7px}.qimage{max-width:min(100%,420px);max-height:220px;object-fit:contain;border-radius:14px;display:block;margin:14px 0}.optimage{max-width:100%;max-height:150px;object-fit:contain;display:block;margin:8px auto 0;border-radius:9px}.option-tile{border:1px solid var(--line);background:#1a2b43;border-radius:11px;padding:9px 11px;text-align:left;color:var(--txt);font-weight:650;font-size:14px;line-height:1.35;width:100%;min-height:42px}.option-tile.selected{border-color:var(--mint);background:#173b37}.option-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.bigq{font-size:clamp(18px,2.1vw,28px);font-weight:800;line-height:1.25}.qrbox{display:inline-block;background:white;padding:12px;border-radius:12px;min-width:170px;min-height:170px}.bar{height:13px;background:#293b54;border-radius:99px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--mint),var(--blue))}.resultrow{display:grid;grid-template-columns:minmax(100px,1fr) 2fr 48px;gap:10px;align-items:center;margin:12px 0}.wordcloud{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;min-height:220px;padding:15px}.word{font-weight:900;color:var(--mint)}.leader{display:grid;grid-template-columns:38px minmax(0,1fr) 82px;gap:10px;padding:10px;border-bottom:1px solid var(--line);align-items:center}.presenter-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,1fr);gap:16px;align-items:start}.presenter-panel{min-width:0}.presenter-panel .card{margin:0}.presenter-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.option-tile.correct-answer{border:2px solid #43d69a!important;background:#124b3b!important;color:#eafff5!important;box-shadow:0 0 0 2px #43d69a33}.option-tile.wrong-answer{opacity:.62}.score-total{color:var(--mint);font-weight:900}.join-state{padding:10px 12px;border-radius:10px;background:#1a2b44;margin-top:12px}.personal-score{font-size:16px;font-weight:850;color:var(--mint);margin-bottom:12px}#participantQuestion h2{font-size:19px;line-height:1.35}.foot{text-align:center;color:var(--muted);font-size:12px;padding:28px}
 @media(max-width:760px){.presenter-layout{grid-template-columns:1fr}.presenter-options{grid-template-columns:1fr}}
 @media(max-width:650px){.wrap{padding:14px}.session-card{align-items:flex-start;flex-direction:column}.option-grid{grid-template-columns:1fr}.option-row{grid-template-columns:24px 1fr}.option-row input[type=file]{grid-column:2}.resultrow{grid-template-columns:85px 1fr 38px}.login{margin:9vh auto 0}}
+
+/* Compact layout: reduce the visual size and spacing of all interface elements */
+body{font-size:14px;line-height:1.4}
+.wrap{max-width:1180px;padding:14px}
+.brand{font-size:17px;gap:8px;margin:5px 0 16px}
+.logo{width:32px;height:32px;border-radius:10px}
+.card{padding:14px;border-radius:14px;margin:10px 0}
+.login{max-width:400px}
+.login h1{font-size:25px}
+.title{font-size:clamp(20px,2.7vw,27px);margin:3px 0 9px}
+h1{line-height:1.2}h2{font-size:18px}h3{font-size:15px}
+p{margin-top:7px;margin-bottom:7px}
+button{font-size:13px;padding:8px 12px;border-radius:9px}
+input,textarea,select{font-size:13px;padding:9px;border-radius:9px}
+textarea{min-height:65px}
+label{font-size:12px;margin:9px 0 4px}
+.row{gap:8px}.actions{gap:7px;margin-top:10px}
+.pill{font-size:11px;padding:3px 8px}
+.question-box{padding:11px;border-radius:11px;margin:9px 0}
+.option-row{grid-template-columns:22px minmax(90px,1fr) minmax(90px,150px);gap:7px;margin:6px 0}
+.option-row input[type=radio]{width:15px;height:15px}
+.option-row input[type=file]{font-size:10px;padding:5px}
+.image-preview{max-width:140px;max-height:90px}
+.qimage{max-width:min(100%,300px);max-height:150px;border-radius:10px;margin:9px 0}
+.optimage{max-height:95px;margin:5px auto 0}
+.option-tile{font-size:12px;line-height:1.25;min-height:34px;padding:7px 9px;border-radius:8px}
+.option-grid,.presenter-options{gap:7px;margin-top:8px}
+.bigq{font-size:clamp(15px,1.45vw,20px);line-height:1.3;font-weight:750}
+#participantQuestion h2{font-size:16px;line-height:1.3}
+.personal-score{font-size:14px;margin-bottom:8px}
+.presenter-layout{grid-template-columns:minmax(0,1.55fr) minmax(240px,.9fr);gap:10px}
+.presenter-panel .card{padding:12px}
+.leader{grid-template-columns:28px minmax(0,1fr) 68px;gap:7px;padding:7px;font-size:12px}
+.leader .tiny{font-size:10px}
+.score-total{font-size:13px}
+.resultrow{grid-template-columns:30px 1fr 38px;gap:7px;margin:8px 0;font-size:12px}
+.bar{height:9px}
+.wordcloud{gap:8px;min-height:150px;padding:10px}
+.word{font-size:clamp(14px,2vw,28px)!important}
+.qrbox{padding:8px;border-radius:9px;min-width:145px;min-height:145px}
+.foot{font-size:10px;padding:18px}
+#projectorControls{padding:11px}
+#projectorControls h2{font-size:16px;margin:0}
+@media(max-width:760px){.presenter-layout{grid-template-columns:1fr}.presenter-options{grid-template-columns:1fr}.wrap{padding:10px}}
+@media(max-width:650px){.card{padding:12px;margin:8px 0}.option-row{grid-template-columns:20px 1fr}.option-row input[type=file]{grid-column:2}.session-card{gap:9px}.title{font-size:22px}.login{margin:7vh auto 0}}
 </style>
 </head>
 <body><div class="wrap">
@@ -305,7 +350,24 @@ async function revealCurrent(){
 }
 async function endCurrent(){if(confirm('End this session?'))await db.ref('sessions/'+currentCode+'/public/status').set('ended');}
 const params=new URLSearchParams(location.search);
-if(params.has('join')){view('joinView');const code=params.get('join');db.ref('sessions/'+code+'/public').once('value').then(s=>{$('joinSessionTitle').textContent=s.val()?.title||'Session';watchJoinStatus(code);}).catch(e=>say('joinMsg',e.message,true));}
+async function initJoin(code){
+  view('joinView');
+  try{
+    // Join-page listeners require a Firebase-authenticated user. Sign in anonymously
+    // before reading /public or attaching the live status listener.
+    await authReady;
+    await requireAnon();
+    $('status').textContent='Participant connected';
+    const snap=await db.ref('sessions/'+code+'/public').once('value');
+    const sessionPublic=snap.val();
+    if(!sessionPublic){say('joinMsg','Session not found. Please check the joining link.',true);return;}
+    $('joinSessionTitle').textContent=sessionPublic.title||'Session';
+    watchJoinStatus(code);
+  }catch(e){
+    say('joinMsg',e.code==='PERMISSION_DENIED'?'Firebase denied access. Check Realtime Database rules.':e.message,true);
+  }
+}
+if(params.has('join')){initJoin(params.get('join'));}
 else if(params.has('screen')){view('projectorView');initProjector(params.get('screen'));}
 </script>
 </body></html>
